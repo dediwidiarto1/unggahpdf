@@ -20,13 +20,11 @@
           <li><a href="index.php?link=datadokumen">Data Dokumen</a></li>
           <li><a href="index.php?link=datastoplist">Data Stoplist</a></li>
           <li><a href="index.php?link=datakatadasar">Data Kata Dasar</a></li>
+          <li><a href="index.php?link=datakatakunci">Data Kata Kunci</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-puzzle-piece"></i> Proses STBI <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="index.php?link=hapustandabaca"> Hapus Tanda Baca</a></li>
-        <li><a href="index.php?link=lowercase"> Lower Case Dokumen</a></li>
-        <li><a href="index.php?link=parsing"> Tokenisasi</a></li>
         <li><a href="index.php?link=hasilindex"> Indexing</a></li>
         <li><a href="index.php?link=hasilstopword">Stopword</a></li>
         <li><a href="index.php?link=hasilstemming">Stemming</a></li>
@@ -34,6 +32,8 @@
         <li><a href="index.php?link=inversdocfreq">Invers Document Frequensi</a></li>
         <li><a href="index.php?link=tf_x_idf">Weighting</a></li>
         <li><a href="index.php?link=rweight">Retrive Weight</a></li>
+        <li><a href="index.php?link=simjaccard">Similarity Jaccard</a></li>
+        <li><a href="index.php?link=rsimjaccard">Retrive Similarity Jaccard</a></li>
       </ul>
     </li>
   <li><a href="index.php?link=about"><i class="fa fa-info-circle"></i> Tentang</a>
