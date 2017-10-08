@@ -8,7 +8,7 @@
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse">
-        <div class="panel-body">Document Frequency.
+        <div class="panel-body">Document Frequency.  (jumlah kali setiap istilah muncul dalam koleksi dokumen).
         </div>
       </div>
     </div>
@@ -26,25 +26,25 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Term</th>
+                <th>TermStem</th>
                 <th>Doc-ID</th>
-                <th>TF</th>
-                <th>DF</th>
+                <th>TF(Term frequency)</th>
+                <th>DF(Document frequency)</th>
               </tr>
             </thead>
             <tbody>
               <?php
-              $result = mysqli_query($koneksi,"select b.Id as Id,b.Term,b.DocId AS DocId,b.TF AS TF,a.DF AS DF from
-              (select Id,Term,Count(Distinct Id) AS DF from tb_stemming Group By Term) a
+              $result = mysqli_query($koneksi,"select b.Id as Id,b.TermStem,b.DocId AS DocId,b.TF AS TF,a.DF AS DF from
+              (select Id,TermStem,Count(Distinct Id) AS DF from tb_proses Group By TermStem) a
               left join
-              (select Id,Term,DocId, Count AS TF  from tb_stemming Group By Id) b
-              on b.Term = a.Term");
+              (select Id,TermStem,DocId, Count AS TF  from tb_proses Group By Id) b
+              on b.TermStem = a.TermStem");
               $warna = "#DFE3FF";
               $no=1;
               while($row = mysqli_fetch_array($result)) {
               if($warna=="#DFE3FF"){$warna="#DFF0D8";}else{$warna="#DFE3FF";}
               print("<tr bgcolor='$warna'>");
-                print("<td>" . $no++ . "</td><td>" . $row['Term'] . "</td><td>" . $row['DocId'] .
+                print("<td>" . $no++ . "</td><td>" . $row['TermStem'] . "</td><td>" . $row['DocId'] .
               "</td><td>" . $row['TF'] .
             "</td><td>" . $row['DF'] .
           "</td>");

@@ -22,7 +22,7 @@
           <div class="clearfix"></div>
         </div>
         <form class="form-inline" action="" method="post">Cari Bobot :
-    <input type="text" class="form-control" size="50" name="input_cari" placeholder="Masukkan term . . ." required>
+    <input type="text" class="form-control" size="50" name="input_cari" placeholder="Masukkan TermStem . . ." required>
     <input type="submit" name="cari" value="Cari" class="btn btn-success" />
   </form>
 
@@ -34,19 +34,19 @@
   // jika tombol cari di klik
    if($cari) {
     ?>
-     <h4>Pencarian dengan term: <b>"<?php echo @$_POST['input_cari']; ?>"</b></h4>
+     <h4>Pencarian dengan TermStem: <b>"<?php echo @$_POST['input_cari']; ?>"</b></h4>
   <hr>
         <div class="table-responsive">
           <table id="datatable" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Term</th>
+                <th>TermStem</th>
                 <th>Doc-ID</th>
-                <th>TF</th>
-                <th>DF</th>
+                <th>TF(Term Frequency)</th>
+                <th>DF(Document frequency</th>
                 <th>N</th>
-                <th>IDF</th>
+                <th>IDF(Inverse Document Frequency)</th>
                 <th>W=TF * IDF</th>
               </tr>
             </thead>
@@ -66,31 +66,31 @@
    // membuat query utk pencarian
    $x++;
     if ($x==1){
-     $construct .= " a.Term LIKE '%$search_each%'";
+     $construct .= " a.TermStem LIKE '%$search_each%'";
    //echo "$construct";
    //echo '<br/>';
    }
     else
      {
-   $construct .= " OR a.Term LIKE '%$search_each%'"; // query jika kata lebih dari 1
+   $construct .= " OR a.TermStem LIKE '%$search_each%'"; // query jika kata lebih dari 1
    //echo "$construct";
    }
    
    }
    
-      $result = mysqli_query($koneksi,"select b.Id as Id,b.Term,b.DocId AS DocId,b.TF AS TF,a.DF AS DF, a.N as N, log10(a.N/a.DF) AS IDF,b.TF *log10(a.N/a.DF) AS TFIDF from
-  (select Id,Term,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_stemming) AS N from tb_stemming Group By Term) a
+      $result = mysqli_query($koneksi,"select b.Id as Id,b.TermStem,b.DocId AS DocId,b.TF AS TF,a.DF AS DF, a.N as N, log10(a.N/a.DF) AS IDF,b.TF *log10(a.N/a.DF) AS TFIDF from
+  (select Id,TermStem,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_proses) AS N from tb_proses Group By TermStem) a
 left join
-  (select Id,Term,DocId, Count AS TF  from tb_stemming Group By Id) b
-on b.Term = a.Term where $construct Order by TFIDF DESC");
+  (select Id,TermStem,DocId, Count AS TF  from tb_proses Group By Id) b
+on b.TermStem = a.TermStem where $construct Order by TFIDF DESC");
 
     }
     else{
-        $result = mysqli_query($koneksi,"select b.Id as Id,b.Term,b.DocId AS DocId,b.TF AS TF,a.DF AS DF, a.N as N, log10(a.N/a.DF) AS IDF,b.TF *log10(a.N/a.DF) AS TFIDF from
-  (select Id,Term,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_stemming) AS N from tb_stemming Group By Term) a
+        $result = mysqli_query($koneksi,"select b.Id as Id,b.TermStem,b.DocId AS DocId,b.TF AS TF,a.DF AS DF, a.N as N, log10(a.N/a.DF) AS IDF,b.TF *log10(a.N/a.DF) AS TFIDF from
+  (select Id,TermStem,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_proses) AS N from tb_proses Group By TermStem) a
 left join
-  (select Id,Term,DocId, Count AS TF  from tb_stemming Group By Id) b
-on b.Term = a.Term");
+  (select Id,TermStem,DocId, Count AS TF  from tb_proses Group By Id) b
+on b.TermStem = a.TermStem");
       }
       $warna = "#DFE3FF";
 $no=1;
@@ -98,7 +98,7 @@ $no=1;
            if($warna=="#DFE3FF"){$warna="#DFF0D8";}else{$warna="#DFE3FF";}
             print("<tr bgcolor='$warna'>");
             print("<td>" . $no++ .
-                      "</td><td>" . $row['Term'] .
+                      "</td><td>" . $row['TermStem'] .
                       "</td><td>" . $row['DocId'] .
                       "</td><td>" . $row['TF'] .
                       "</td><td>" . $row['DF'] .

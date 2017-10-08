@@ -9,8 +9,8 @@
 				</div>
 				<div class="x_content">
 					<H3>1). 15.01.63.0018 Afandi</H3>
-					<H3>1). 16.01.63.0023 Dedi Widiarto</H3>
-					<H3>1). 14.01.53.0130 Alfad Aifudin Zuhri</H3>
+					<H3>2). 16.01.63.0023 Dedi Widiarto</H3>
+					<H3>3). 14.01.53.0130 Alfad A.Z</H3>
 				</div>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 include 'koneksi.php';
 mysqli_query($koneksi,"TRUNCATE TABLE tb_proses");
 mysqli_query($koneksi,"TRUNCATE TABLE tb_dokumen");
-mysqli_query($koneksi,"TRUNCATE TABLE tb_stemming");
+mysqli_query($koneksi,"TRUNCATE TABLE tb_katakunci");
 $files = glob('halaman/files/*.pdf'); //get all file names
 foreach($files as $file){
     if(is_file($file))

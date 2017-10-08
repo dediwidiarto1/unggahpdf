@@ -11,7 +11,7 @@
 
                         <div class="col-sm-7">
                           <div class="input-group">
-                            <input class="form-control" type="text" name='keyword' placeholder="masukkan keyword . . .">
+                            <input class="form-control" type="text" name='keyword' placeholder="masukkan keyword . . ." required>
                             <span class="input-group-btn">
                                               <input class="btn btn-primary" type='submit' value='Cari'>
                                           </span>

@@ -22,8 +22,6 @@
           <div class="clearfix"></div>
         </div>
         <?php
-        include 'tambahan/fungsi.php';
-        buatindex();
         $result = mysqli_query($koneksi,"SELECT * FROM tb_proses");
         $warna = "#DFE3FF";
         ?>

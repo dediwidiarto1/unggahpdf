@@ -37,7 +37,7 @@ function buatID(){
         <div class="form-group">
             <label class="control-label col-xs-2" for="Id" >Id:</label>
             <div class="col-xs-9">
-                <input type="text" class="form-control" name="Id" placeholder="Id Anda" value="<?php echo buatID(); ?>" readonly>
+                <input type="text" class="form-control" name="DocId" placeholder="Id Anda" value="<?php echo buatID(); ?>" readonly>
             </div>
         </div>
 		 <div class="form-group" >
