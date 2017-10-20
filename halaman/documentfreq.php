@@ -8,7 +8,7 @@
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse">
-        <div class="panel-body">Document Frequency.  (jumlah kali setiap istilah muncul dalam koleksi dokumen).
+        <div class="panel-body">Document Frequency. seberapa banyak suatu term muncul di seluruh document yang diselidiki. 
         </div>
       </div>
     </div>

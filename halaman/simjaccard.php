@@ -8,7 +8,8 @@
             </h4>
           </div>
           <div id="collapse1" class="panel-collapse">
-            <div class="panel-body">Similarity=Intersect/(Union-Intersect)
+            <div class="panel-body">Similarity=Intersect/(Union-Intersect), gabungan & irisan.
+			<p>Merupakan metode yang digunakan untuk menghitug tingkat kesamaan (similarity) antar dua buah objek.</p>
  </div>
           </div>
         </div>

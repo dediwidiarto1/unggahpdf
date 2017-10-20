@@ -8,7 +8,7 @@
             </h4>
           </div>
           <div id="collapse1" class="panel-collapse">
-            <div class="panel-body">Invers Document Frequency :melakukan pembobotan berdasarkan jumlah kemunculannya dalam koleksi dokumen.
+            <div class="panel-body">Invers Document Frequency berfungsi mengurangi bobot suatu term jika kemunculannya banyak tersebar di seluruh koleksi dokumen kita. Rumusnya adalah dengan inverse document frequency. 
 			
  </div>
           </div>

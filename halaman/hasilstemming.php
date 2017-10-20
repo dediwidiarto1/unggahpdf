@@ -10,7 +10,7 @@
           <div id="collapse1" class="panel-collapse">
             <div class="panel-body">Proses untuk menemukan kata dasar dari sebuah kata. Dengan cara menghilangkan semua imbuhan (affixes) baik yang terdiri dari awalan (prefixes), sisipan (infixes), akhiran
 (suffixes) dan confixes (kombinasi dari awalan dan akhiran) pada kata turunan.
-<p>Metode TF(Term frequency) adalah merupakan suatu metode pembobotan.</p>
+<p>Metode TF(Term frequency) adalah merupakan frekuensi kemunculan term pada dokumen.</p>
  </div>
           </div>
         </div>

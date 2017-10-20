@@ -32,7 +32,7 @@
 $resBerita = mysqli_query($koneksi,"SELECT * FROM tb_dokumen ORDER BY Id");
 $warna = "#DFE3FF";
 while($row = mysqli_fetch_array($resBerita)) {                
-                     $lines[] = $row['Isi']; 
+                     $lines[] = $row['isi']; 
   }                    
 $no=1;
 foreach ((array)$lines as $line_num => $line){
