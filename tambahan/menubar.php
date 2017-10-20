@@ -26,6 +26,7 @@
       <li><a><i class="fa fa-puzzle-piece"></i> Proses STBI <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="index.php?link=hasilindex"> Indexing</a></li>
+		<li><a href="index.php?link=parsing"> Tokenisasi</a></li>
         <li><a href="index.php?link=hasilstopword">Stopword</a></li>
         <li><a href="index.php?link=hasilstemming">Stemming</a></li>
         <li><a href="index.php?link=documentfreq">Document Frequensi</a></li>
