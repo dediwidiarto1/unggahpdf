@@ -30,13 +30,13 @@ include "koneksi.php";
    // membuat query utk pencarian
    $x++;
     if ($x==1){
-     $construct .= " a.Term LIKE '%$search_each%'";
+     $construct .= " a.TermStem LIKE '%$search_each%'";
    //echo "$construct";
    //echo '<br/>';
    }
     else
      {
-   $construct .= " OR a.Term LIKE '%$search_each%'"; // query jika kata lebih dari 1
+   $construct .= " OR a.TermStem LIKE '%$search_each%'"; // query jika kata lebih dari 1
    //echo "$construct";
    }
    
@@ -49,7 +49,7 @@ include "koneksi.php";
          <div class='form-group'>
                         <div class='col-sm-9'>
                           <div class='input-group'>
-                            <input class='form-control' type='text' name='keyword' value='$keyword' placeholder='masukkan keyword . . .''>
+                            <input class='form-control' type='text' name='keyword' value='$keyword' placeholder='masukkan keyword . . .' required>
                             <span class='input-group-btn'>
                                               <input class='btn btn-primary' type='submit' value='Cari'>
                                           </span>
@@ -58,11 +58,11 @@ include "koneksi.php";
                       </div>
     </form>";
 // select distinct utk mengambil Isi agar tdk duplikasi
-   $sql2=mysqli_query($koneksi,"select b.Id as Id,b.Term,b.Id as Id,b.DocId AS DocId,b.TF AS TF,b.TF *log10(a.N/a.DF) AS Weight from
-  (select Id,Term,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_stemming) AS N from tb_stemming Group By Term) a
+   $sql2=mysqli_query($koneksi,"select b.Id as Id,b.TermStem,b.Id as Id,b.DocId AS DocId,b.TF AS TF,b.TF *log10(a.N/a.DF) AS Weight from
+  (select Id,TermStem,Count(Distinct Id) AS DF ,(SELECT Count(Distinct DocId)FROM tb_proses) AS N from tb_proses Group By TermStem) a
 left join
-  (select Id,Term,DocId, Count AS TF  from tb_stemming Group By Id) b
-on b.Term = a.Term where $construct");
+  (select Id,TermStem,DocId, Count AS TF  from tb_proses Group By Id) b
+on b.TermStem = a.TermStem where $construct");
 // memeriksa apakah ada hasil pencarian, jika = 0 maka tampilkan kata "tdk ada"
     $foundnum = mysqli_num_rows($sql2);
   if ($foundnum==0)
@@ -80,7 +80,7 @@ $sql=mysqli_query($koneksi,"select distinct Id, Judul, Isi, URL from tb_dokumen 
 $data=mysqli_fetch_array($sql);
  @$Isi=substr($data[Isi],0,200);
    echo "
-   <a href=halaman/$data[URL]><b><font color='blue'>$data[Judul]</font></b> </a> --> <b>(Kata '$keyword' muncul sebanyak $data2[TF] kali, bobotnya = $data2[Weight]) </b><br />
+   <a href='halaman/$data[URL]'><b><font color='blue'>$data[Judul]</font></b> </a> --> <b>(Kata '$keyword' muncul sebanyak $data2[TF] kali, bobotnya = $data2[Weight]) </b><br />
    $Isi ...<br>
    <font color='00CC00'>halaman/$data[URL]</font><hr>
 </h4>
